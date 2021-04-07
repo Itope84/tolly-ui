@@ -1,0 +1,10 @@
+@import '../variables';
+
+.App {
+  background-color: $appBg;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  overflow-y: auto;
+}

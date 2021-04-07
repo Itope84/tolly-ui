@@ -28,3 +28,10 @@
 @function css-max($values...) {
   @return css-function(max, $values);
 }
+
+// Typography
+@mixin headerText {
+  font-size: 2rem;
+  font-weight: 500;
+  color: $appBlack;
+}

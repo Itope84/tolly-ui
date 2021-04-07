@@ -8,10 +8,12 @@
 
   @include mobile() {
     flex-basis: 100%;
+    max-width: 100%;
   }
 
   &--header {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 24px;
@@ -52,16 +54,19 @@
     &__header {
       display: flex;
       align-items: flex-start;
+      flex-wrap: wrap;
       justify-content: space-between;
 
       h1 {
         @include headerText;
+        margin-bottom: 8px;
       }
 
       &--secure {
         align-items: flex-start;
         display: flex;
         max-width: 180px;
+        margin-bottom: 8px;
 
         svg {
           width: 14px;

@@ -1,0 +1,329 @@
+@import '../mixins', '../variables';
+
+.payment-card {
+  padding: 48px;
+  border-radius: 8px;
+  background-color: #fff;
+  flex-basis: 60%;
+
+  @include mobile() {
+    flex-basis: 100%;
+  }
+
+  &--header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+    &__logo {
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    &__user {
+      display: flex;
+      justify-content: space-between;
+      width: 200px;
+      background-color: #f5f8f9;
+      border-radius: 50px;
+      padding: 2px 2px 2px 24px;
+      align-items: center;
+      cursor: pointer;
+
+      svg {
+        width: 14px;
+        height: 14px;
+        path {
+          stroke-width: 4px;
+          stroke: currentColor;
+        }
+      }
+
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+      }
+    }
+  }
+
+  &--body {
+    &__header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      h1 {
+        @include headerText;
+      }
+
+      &--secure {
+        align-items: flex-start;
+        display: flex;
+        max-width: 180px;
+
+        svg {
+          width: 14px;
+          height: 14px;
+          min-width: 14px;
+          stroke-width: 4px;
+          stroke: currentColor;
+          margin-right: 4px;
+          margin-top: 8px;
+        }
+
+        &__header {
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        p {
+          font-size: 12px;
+        }
+      }
+    }
+
+    &--tabs {
+      &__wrapper {
+        border-bottom: 1px solid $appBg;
+        margin-bottom: 24px;
+      }
+
+      display: flex;
+      margin-bottom: -1px;
+    }
+
+    &--tab {
+      padding: 12px 0px;
+      cursor: pointer;
+      color: $textColor;
+
+      &:hover {
+        color: $appBlack;
+      }
+
+      &:not(:last-of-type) {
+        margin-right: 24px;
+      }
+
+      &.active {
+        color: $appBlack;
+        border-bottom: 2px solid $appBlack;
+      }
+    }
+
+    &--content {
+      display: flex;
+      flex-wrap: wrap;
+
+      @include media-breakpoint-down(600px) {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 40%;
+  width: 40%;
+  max-width: 40%;
+
+  @include media-breakpoint-down(600px) {
+    flex-basis: 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.card {
+  padding: 24px;
+  border-radius: 8px;
+  min-height: 120px;
+  min-width: 220px;
+  background-color: red;
+  margin-bottom: 18px;
+  position: relative;
+
+  .selected-indicator {
+    position: absolute;
+    display: block;
+    top: -8px;
+    right: -8px;
+    width: 36px;
+    height: 36px;
+    padding: 10px;
+    border-radius: 100%;
+    background-color: darken(#bddba6, 40);
+
+    svg {
+      path {
+        fill: #fff;
+        stroke-width: 6px;
+        stroke: #fff;
+      }
+    }
+  }
+
+  display: flex;
+  flex-direction: column;
+
+  &--number {
+    margin-left: auto;
+  }
+
+  &--logo {
+    width: 40px;
+    height: 40px;
+    margin-top: auto;
+    margin-left: auto;
+  }
+
+  &--add-new {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    font-weight: 500;
+    font-size: 16px;
+    color: darken(#bddba6, 70);
+    display: flex;
+    align-items: center;
+
+    &-icon {
+      background-color: darken(#bddba6, 60);
+      width: 36px;
+      height: 36px;
+      padding: 8px;
+      display: block;
+      border-radius: 100%;
+      margin-left: 12px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+
+        path {
+          stroke-width: 3px;
+          stroke: #fff;
+          fill: #fff;
+        }
+      }
+    }
+  }
+
+  &:nth-of-type(1) {
+    background-color: #ced9fd;
+
+    .card--logo {
+      svg {
+        path {
+          fill: darken(#ced9fd, 30);
+        }
+      }
+    }
+  }
+
+  &:nth-of-type(2) {
+    background-color: #f9cba0;
+  }
+
+  &:nth-of-type(3) {
+    background-color: #bddba6;
+  }
+}
+
+.form {
+  flex: 1;
+  padding: 24px;
+  flex-basis: 60%;
+  width: 60%;
+  max-width: 60%;
+
+  @include media-breakpoint-down(600px) {
+    flex-basis: 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &--field {
+    label {
+      color: $textColor;
+      font-weight: 500;
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    &--input {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 14px;
+      background-color: $appGrey;
+      border-radius: 4px;
+      border: 2px solid $appGrey;
+      margin-bottom: 24px;
+
+      &:focus-within {
+        background-color: #fff;
+        border-color: darken($appGrey, 20);
+      }
+
+      input {
+        background-color: transparent;
+        border: none;
+        flex: 1;
+
+        &:focus {
+          border: none;
+          outline: none;
+        }
+      }
+
+      &__suffix {
+        width: 30px;
+        height: auto;
+      }
+    }
+  }
+
+  &--row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .form--field {
+      width: 45%;
+      &:not(:last-child) {
+        margin-right: 10%;
+      }
+    }
+  }
+
+  &--submit {
+    display: block;
+    padding: 12px 24px;
+    background-color: #000;
+    border-radius: 4px;
+    border: none;
+    color: #fff;
+    margin-bottom: 8px;
+    margin-right: 8px;
+    cursor: pointer;
+  }
+
+  &--cancel {
+    background-color: transparent;
+    border: none;
+    color: $textColor;
+    cursor: pointer;
+    padding: 12px 24px;
+  }
+}

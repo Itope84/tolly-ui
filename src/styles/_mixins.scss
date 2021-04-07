@@ -17,6 +17,12 @@
   }
 }
 
+@mixin media-breakpoint-down($max) {
+  @media screen and (max-width: #{$max}) {
+    @content;
+  }
+}
+
 @function css-function($function, $values...) {
   @return $function + unquote('(') + $values + unquote(')');
 }
